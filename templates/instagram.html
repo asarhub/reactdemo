@@ -1,0 +1,156 @@
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+<title>front</title>
+<style>
+h1{
+color:red;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+body,html{
+height:100%;
+margin:0;
+}
+.bg {
+background-image:url("static/4.png");
+height:100%;
+min-height:1500px;
+background-position:center;
+background-attachment: fixed;
+background-repeat:no-repeat;
+background-size:cover;
+}
+
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type=button] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button {
+  background-color: #cc8200;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius:200px;
+}
+.button:hover{
+background-color:#774c00;
+}
+</style>
+</head>
+<body>
+<div class="bg"><br>
+ 
+<center><h1 style="/*color:red;*/font-family:verdana">HEART DISEASE PREDICTION</h1></center>
+<h2 style="color:#ffa300,font-weight:300%"><marquee behavior="scroll" direction="left">
+Enter heart disease related parameters here &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp Enter heart disease related parameters here </marquee></h2>
+<form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="experience"  width="48" height="48" placeholder="age" required="required" /><br><br>
+        
+
+        <select id="cars" name="test_score">
+  <option value="1">Male</option>
+  <option value="0">Female</option>
+</select>
+<br><br>
+		 <select id="car" name="interview_score">
+		 <option value="" disabled selected hidden>Choose Chest pain type</option>
+  <option value="1">typical angina</option>
+  <option value="2">atypical angina</option>
+  <option value="3">non-anginal pain</option>
+  <option value="4">asymptomatic</option>
+</select><br><br>
+		<input type="text" name="e" placeholder="resting blood pressure" required="required" /><br><br>
+        <input type="text" name="t" placeholder="Cholestrol" required="required" /><br><br>
+		<select id="car" name="i">
+		 <option value="" disabled selected hidden> Whether Fasting blood sugar > 120 mg/dl</option>
+  <option value="1">True</option>
+  <option value="0">False</option>
+</select><br><br>
+		<select id="ca" name="ex">
+		 <option value="" disabled selected hidden>Resting electrocardiographic result</option>
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+</select><br><br>
+        <input type="text" name="te" placeholder="The person's maximum heart rate achieved" required="required" /><br><br>
+        <select id="cc" name="in">
+		 <option value="" disabled selected hidden>Exercise induced angina</option>
+  <option value="1">yes</option>
+  <option value="0">no</option>
+</select>
+		<br><br>
+		<input type="text" name="exp" placeholder="ST depression induced" required="required" /><br><br>
+		<select id="ccccc" name="test">
+		 <option value="" disabled selected hidden>choose slope value</option>
+  <option value="1">upsloping</option>
+  <option value="2">flat</option>
+  <option value="3">downsloping</option>
+</select><br><br>
+		<select id="tttttt" name="interview">
+		 <option value="" disabled selected hidden>The number of major vessels</option>
+  <option value="0">0</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option><br><br>
+</select><br><br>
+        <select id="ccccccc" name="expe">
+		 <option value="" disabled selected hidden>Thalassemia</option>
+  <option value="3">normal</option>
+  <option value="6">fixed defect</option>
+  <option value="7">reversable defect</option>
+</select><br><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large button" style="width:500px">Predict</button>
+    </form>
+    <h1 style="color:red">
+{{ prediction_text }}</h1>
+
+
+</div>
+</body>
+</html>
