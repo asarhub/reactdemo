@@ -2,7 +2,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 
 import pickle
-
+#hai
 app = Flask(__name__)
 model = pickle.load(open('model2.pkl', 'rb'))
 
